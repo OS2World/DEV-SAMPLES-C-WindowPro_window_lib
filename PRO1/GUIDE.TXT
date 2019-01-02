@@ -1,0 +1,1915 @@
+
+
+
+
+
+
+                                    The WindowPro
+                                           
+                          *  * * * *  Users Guide  * * * * *
+                                           
+                                   by Kenneth Stott
+                                     version 1.5
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                  Seabreeze Software
+                                 397 Dal-Rich Village
+                                      Suite 169
+                               Richardson, Texas 75080
+                                    (214) 437-2729
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                       Copyright (c) 1986-1988 by Kenneth Stott
+                                 All Rights Reserved
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+          The WindowPro shareware diskette, containing a copy of this
+          manual, may be freely copied and shared.  But, printed copies of
+          this document may not be copied by any method without the express
+          written permission of Seabreeze Software.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          I.    Introduction . . . . . . . . . . . . . . . . . . . . .    1
+          II.   Technical Notes  . . . . . . . . . . . . . . . . . . .    2
+          III.  Shareware  . . . . . . . . . . . . . . . . . . . . . .    4
+          IV.   Registration . . . . . . . . . . . . . . . . . . . . .    5
+          V.    Support Details  . . . . . . . . . . . . . . . . . . .    7
+          VI.   Diskette . . . . . . . . . . . . . . . . . . . . . . .    8
+          VII.  Installation . . . . . . . . . . . . . . . . . . . . .   10
+          VIII. Compiling and linking the demo . . . . . . . . . . . .   11
+          IX.   Overview . . . . . . . . . . . . . . . . . . . . . . .   12
+          X.    Glossary . . . . . . . . . . . . . . . . . . . . . . .   13
+          XI.   Tutorial . . . . . . . . . . . . . . . . . . . . . . .   16
+          XII.  Common Problems  . . . . . . . . . . . . . . . . . . .   20
+          XIII. Forthcoming Enhancements . . . . . . . . . . . . . . .   21
+          XIV.  Functions Overview . . . . . . . . . . . . . . . . . .   21
+          XV.   Other Seabreeze Products . . . . . . . . . . . . . . .   26
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               - Table of Contents 1 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          I.    Introduction
+          
+          WindowPro is one of the most comprehensive, compact, and easiest
+          to use screen control libraries available for "C" language
+          development of applications and systems software.  
+          
+             . WindowPro lets you easily create programs that look and feel
+               like Framework, Lotus, dBase III, and other top-sellers. 
+               Dialog boxes, context-sensitive help, pop-up and pull-down
+               menus are a snap to implement.  
+          
+             . Your programs will be able to drag, zoom, split, hide, and
+               scroll windows fast, flicker-free, and without snow.  
+          
+             . Sensing video cards, setting video modes, and cursor control
+               are simple straight-forward operations.  
+             
+             . WindowPro is compiler and machine independent.  You can use
+               the same applications interface for your VAX, IBM PC, or
+               APPLE II.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 1 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          II.   Technical Notes
+          
+             . Compatibility - Seabreeze Software currently supports
+               WindowPro under MS-DOS and OS/2 running on the IBM-PC/XT/AT,
+               PS/2 and compatibles.  It works with CGA, MDA, EGA, and VGA
+               cards in black and white or color and operates in 40 X 25,
+               80 X 25, and 80 X 43 modes.  It also supports the multi-page
+               capabilities of the CGA, EGA, and VGA video cards. 
+               WindowPro supports the large, medium, and small models under
+               Turbo C version 2.0, Microsoft C 5.X, and Miscrosoft Quick
+               C. 
+             
+             - The number of windows on the screen is algorithmically
+               unlimited.  Your compiler or hardware may limit the number
+               of windows.
+             
+             . Error handling - WindowPro has extensive error handling
+               capabilities.  The centralized error handling feature can be
+               switched on or off during run-time via a function call. 
+               With the feature disabled WindowPro functions return
+               extensive error handling information for customized error
+               handling, with it enabled WindowPro reports all errors to
+               the screen.
+             
+             . Machine independence - WindowPro use three methods of screen
+               updating: 
+             
+                 .. Direct memory access ("DMA") - Usable on IBM PC/XT/AT,
+                    PS/2 and compatibles.  This is the fastest and most
+                    efficient method. 
+                 
+                 .. IBM PC BIOS method ("BIOS") - Considered well-behaved
+                    by programs such as DESQVIEW, and MICROSOFT WINDOWS. 
+                 
+                 .. Direct cursor positioning ("ANSI") -  Requires a
+                    terminal that can position the cursor at a coordinate
+                    on the screen.  This is by default setup for an ANSI
+                    type terminal, but can be modified at run-time for
+                    others.  
+                  
+               In all modes no assumptions are made about screen size,
+               video memory locations, etc.  But you are provided with
+               several functions for sensing and setting video modes on an
+               IBM-PC.  
+             
+             . Compiler independence -  WindowPro is pretty straight
+               forward -- it has proven quite easy to port to other
+               compilers.  Although we are in the process of testing
+               WindowPro with several compilers we can only recommend
+               Borland Turbo C, Microsoft C 5.X, and Quick-C 1.X.
+             
+               For now, If you would like to use another compiler, you will
+               have to purchase the source code (see registration, next
+               section.)  WindowPro uses the following functions from the
+
+
+
+                                        - 2 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+               compilers' libraries.  Your compiler  will need to support
+               these functions, or you will need to provide suitable
+               substitutes, to make use of the WindowPro source code:
+             
+                  . farmalloc, farfree, and movedata.
+                  
+                  .  vsprintf.  Necessary for the wprintf feature.
+                  
+                  . int86.  Necessary for sensing the video card, setting
+                    the video mode, setting the cursor size and position,
+                    and other IBM PC specific functions.
+                  
+                  . getch.  Necessary for WindowPro's vs_gets function.
+                  
+                  . putchar. Necessary for ANSI mode.
+                  
+                  
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 3 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          III.  Shareware
+          
+          Seabreeze Software distributes WindowPro under the shareware
+          marketing concept.  Because WindowPro is shareware you can freely
+          copy and share the WindowPro shareware diskette with its programs
+          and manual.  You can also obtain it from Seabreeze Software for
+          $15 (the cost of the diskette, postage, and handling.)  In fact,
+          we hope you do help us by sharing unmodified copies of the
+          WindowPro shareware diskette with other programmers.
+          
+          You may incorporate WindowPro into your programs and distribute
+          those programs absolutely royalty free (see registration section
+          for details.)  You may not however sell, or give away, the
+          WindowPro source code -- even if you purchase the right to use it
+          (see registration section.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 4 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          IV.   Registration
+          
+          Shareware is software which can be freely copied and
+          distributed.  It is copyrighted software which the author
+          encourages people to copy and share with others.
+          
+          You can register WindowPro with Seabreeze Software for three
+          levels of support:
+          
+           .  For $50 (DOS) or $100 (OS/2 & DOS) you receive
+          
+               .  A serialized diskette containing all the latest libraries
+                  for one specified compiler and all memory models.
+               
+               .  Single user telephone support (Compuserve and voice.) 
+                  See next section for details.
+               
+               .  Notification of updates for one year.
+           
+           .  For $100 (DOS) or $200 (OS/2 & DOS) you receive 
+           
+               .  the above, and
+               .  one hundred pages of liberally commented source code (on
+                  diskette,) 
+               
+                  This support-level is usable for non-commercial
+                  programs.  Non-commercial programs are those created for
+                  limited user (less than 50 users) installations (as
+                  typically might be found in a small consulting situation
+                  or a small corporate software development setting,) or
+                  for unlimited freeware distribution.
+            
+           .  For $200 (DOS) or $400 (OS/2 & DOS) you receive 
+           
+               .  the above, plus 
+               .  the right to use The WindowPro in commercial
+                  applications. 
+           
+           .  Call for details regarding site licensing, consulting
+              services, and customizations.
+             
+          
+          Seabreeze Software retains the following rights:
+          
+           .  If you purchase the source code you may not distribute it
+              except as part of an application program.  In other words,
+              you can't resell the source in its current or modified form
+              in a way that competes with the original product.  
+           
+           .  If you provide the WindowPro source code to a purchaser of
+              your applications software you must leave the remarks in the
+              source code indicating that the original copyright is held by
+
+
+
+
+
+                                        - 5 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+              Seabreeze Software.  If you rewrite portions of WindowPro you may point out the modifications made by yourself but
+              you are still legally obligated to leave the original
+              copyright notice in the source code.
+           
+           .  Seabreeze Software may modify its pricing and distribution
+              policies at any time without notification.  This does not
+              imply that we will not honor our contractual obligations. But
+              that we reserve the right to not contract for the above
+              services at the above prices, i.e. we are not bound by 'old'
+              advertising.
+          
+          The registration form is at the back of this manual.
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 6 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          V.    Support Details
+          
+          Support is provided under three methods.
+          
+           .  E-mail.  Send mail to Seabreeze Software, Compuserve ID#
+              72330, 705
+           
+           .  Voice.  You may call Seabreeze Software directly at
+              214-437-2729, Monday through Friday, 9 a.m. to 5 p.m. 
+              Central Time.
+          
+          Technical support is available to registered users only, you must
+          leave your license agreement number, your name, and instructions
+          for answering the question (like - "please answer via Compuserve
+          E-mail ID# XXXXX, XXX." or  "Please call me at XXX-XXX-XXXX for
+          verbal consultation.")  Give as many details as possible. 
+          Answers will generally be received within 24 hours or less,
+          Monday through Friday.
+          
+          Seabreeze Software will respond to general questions from
+          unregistered users, like "I have version X.XX, what is the latest
+          version?" or "What is the current price for support level X?"  We
+          cannot respond to technical questions from unregistered users.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 7 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          VI.   Diskette
+          
+          The shareware diskettes should contain the following files:
+          
+          Read.me             Any last minute corrections, additions, etc.
+          Pkxarc.exe          Unarchives Pro.arc
+          Pro1.arc & Pro2.arc Contain the manual and libraries
+          
+          Pro1.arc & Pro2.arc contain:
+          
+          Guide.txt           An introductin to the WindowPro
+          Ref.txt             The WindowPro function reference manual
+          Demo.c              Source code for the WindowPro demo program
+          Demo.exe            The WindowPro demo program
+          Demol.prj           Project file, Borland Turbo C (large model)
+          Demom.prj           Project file, Borland Turbo C (medium model)
+          Demos.prj           Project file, Borland Turbo C (small model)
+          Initwdws.c          The initialization module source code
+          Msc_prol.bat        MS C5 compile/link batch file (large model)
+          Msc_prom.bat        MS C5 compile/link batch file (medium model)
+          Msc_pros.bat        MS C5 compile/link batch file (small model)
+          Qc_prol.bat         Quick C compile/link batch file (QCL.EXE -
+                              large model)
+          Qc_prom.bat         Quick C compile/link batch file (QCL.EXE -
+                              medium model)
+          Qc_pros.bat         Quick C compile/link batch file (QCL.EXE -
+                              small model)
+          Tc_prol.bat         Turbo C compile/link batch file (TCC.EXE and
+                              TLINK.EXE - large model)
+          Tc_prom.bat         Turbo C compile/link batch file (TCC.EXE and
+                              TLINK.EXE - medium model)
+          Tc_pros.bat         Turbo C compile/link batch file (TCC.EXE and
+                              TLINK.EXE - small model)
+          pro.h               Type checking include files (wn_ functions)
+          vs.h                "                           (vs_ functions)
+          video.h             "                           (v_  functions)
+          keyboard.h          "                           (kb_ functions)
+          mouse.h             "                           (kb_mouse
+                              functions)
+          colors.h            Color definition macros for IBM-PC
+          xcodes.h            Macros for some extended keyboard codes
+                              (returned by kb_getxc().)
+          werrors.h           Error handler definitions
+          vidmodes.h          Video mode definition macros for IBM-PC
+          initwdws.c          The initialization module source code
+          globals.h           Global declarations (for initwdws.c)
+          xglobals.h          Global external declarations
+          tcpowerl.lib        Turbo C large model WindowPro library
+          tcpowerm.lib        Turbo C medium model WindowPro library
+          tcpowers.lib        Turbo C small model WindowPro library
+          mscpowl.lib         MS C 5 & QC large model WindowPro library
+          mscpowm.lib         MS C 5 & QC medium model WindowPro library
+          mscpows.lib         MS C 5 & QC small model WindowPro library
+          qcpower.qlb         Quick C medium model WindowPro quick library
+
+
+
+                                        - 8 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          Tutor1.c            Source and turbo project files (medium, large
+                              & small model)  for tutorial number 1.
+          Tutor1l.prj         "
+          Tutor1m.prj         "
+          Tutor1s.prj         "
+          Tutor2.c            Source and turbo project files for tutorial
+                              number 2.
+          Tutor2l.prj         "
+          Tutor2m.prj         "
+          Tutor2s.prj         "
+          Tutor3.c            Source and turbo project files for tutorial
+                              number 3.
+          Tutor3l.prj         "
+          Tutor3m.prj         "
+          Tutor3s.prj         "
+          Tutor4.c            Source and turbo project files for tutorial
+                              number 4.
+          Tutor4l.prj         "
+          Tutor4m.prj         "
+          Tutor4s.prj         "
+          Tutor5.c            Source and turbo project files for tutorial
+                              number 5.
+          Tutor5l.prj         "
+          Tutor5m.prj         "
+          Tutor5s.prj         "
+          
+          Note: BBS operators may repackage The WindowPro files to optimize
+          on-line time.  If you received your files via a BBS please make
+          sure you have all of The WindowPro shareware files.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 9 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          VII.  Installation
+          
+            1. Backup your shareware diskette.
+            
+            2. Type "pkxarc Pro1" at the dos prompt and press ENTER, and
+               then "pkxarc Pro2".  Pkxarc will unarc Pro1.arc & Pro2.arc
+               into the current default directory.  You can run pkxarc.exe
+               from another directory, and unarc Pro1.arc located on
+               another drive or directory by preceding each with a drive
+               and directory specification, for example
+            
+            
+               C:\Pro>a:pkxarc a:Pro1
+            
+               will run pkxarc from the a: drive and unarc Pro1.arc located
+               on the a: drive into the c: drive and the "Pro"
+               sub-directory.
+            
+            3. Copy the library file (extension of ".lib") to the diskette
+               or sub-directory you usually use with your C compiler.  The
+               lib files should be in the same sub-directory as your C
+               runtime libraries.  
+            
+            4. Copy the compiler/linker driver batch file that corresponds
+               to your compiler to
+            
+               PRO.BAT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       - 10 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          VIII. Compiling and linking the demo
+          
+          Compile the demo by typing 
+          
+          PRO DEMO
+          
+          at the dos prompt.
+          
+          Note: The compile/link batch files assume that you have installed
+          the your compiler as suggested by your compiler's manual.  If you
+          are using Turbo-C it assumes that the sub-directories LIB and
+          INCLUDE are child directories of the default directory.  If you
+          are using MSC or Quick-C it assumes that the BIN sub-directory is
+          in your PATH, and that the environment variables LIB and INCLUDE
+          are properly set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       - 11 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+           IX.   Overview
+          
+           WindowPro is a virtual screen manager.  Instead of  working with
+           a single screen like a traditional program, you can define
+           hundreds of screens.  And with simple commands, like vs_gets and
+           vs_printf, you send output to any virtual screen.  You can
+           display parts of a virtual screen on the physical screen through
+           a window.  
+           
+           Windows may overlap one another so that some windows will obscure
+           others.  A collection of overlapping windows on a screen could
+           like this.  
+           
+           
+                           +--------------------+ 
+                           |                    | 
+                           |     window #1      | 
+                           |                    | 
+                           |                    |-------------+ 
+                           |                    |             | 
+                           |                    |             | 
+                           |                    |             | 
+                           |                    |             | 
+                           |                    |             | 
+                           +--------------------+             | 
+                                |         |                   | 
+                                |         |     window #2     | 
+                                |         |                   | 
+                                |         |                   | 
+                                |         +-------------------+ 
+                                |                      | 
+                                |     window #3        | 
+                                |                      | 
+                                +----------------------+ 
+           
+           Because all WindowPro operation modes can be decided at runtime. 
+           You can support several MS-DOS supported machines with one
+           executable file.  Creating programs with fancy terminal
+           installations is very simple, or for the IBM PC world, creating
+           programs that automatically sense, or set, video modes, sense
+           display adapters, etc. is quite easy.
+           
+           WindowPro provides mouse support.  Mice and windows are a team. 
+           So we have provided extensive and sophisticated support for
+           MICROSOFT MOUSE compatible devices.  
+           
+           WindowPro, for all of its added features just doesn't take much
+           space.  If you use just the basic functions you will only add
+           about 35K of code to your application.  If you use all of the
+           features you will add about 65K. (Depends on you compiler.)  
+
+
+
+
+
+
+
+                                       - 12 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+           X.    Glossary
+          
+              . Physical screen - the physical screen is your computer or
+                terminal screen. Unlike a virtual screen it is limited in
+                size to whatever modes your computer or terminal supports.
+              
+              . Virtual screen - WindowPro allows you to create an unlimited
+                number of virtual screens.  Instead of sending output to the
+                physical screen, you send output to the virtual screen of
+                your choice.  WindowPro will update the physical screen only
+                if there is a window onto the virtual screen displayed on
+                the physical screen. Virtual screens are not limited in
+                size.  A virtual screen does not have to have an open window
+                on the physical screen, i.e. a program can update a virtual
+                screen without affecting the physical screen.
+              
+              . Window - a window allows you to show part of a virtual
+                screen on the physical screen.  WindowPro lets you open a
+                window and place it anywhere on the physical screen. 
+                Windows can be moved or resized through simple function
+                calls.  Windows may overlap on the physical screen.  
+              
+                You can control the overlapping of windows in several ways. 
+                If you need to see a window which is partially or completely
+                obscured you can 'activate' the window, which will bring it
+                temporarily to the top of the physical screen.  You put the
+                the 'active' window back into its original position by
+                'deactivating' it.  A window may be brought to the top
+                permanently by 'opening' it.  You remove a window from the
+                physical screen by 'closing' it.
+              
+              . Handle - when a window is created WindowPro returns an
+                internal name - a handle - by which the window can be
+                referred to.
+              
+              . Viewport - The rectangular region of a virtual screen
+                displayed within a window.
+              
+              . Border - the area of the window which surrounds the viewport
+                is called the border.  You can specify the border characters
+                and can select from several types of display styles to
+                create shadowing effects.
+              
+              . Freezing or Suspending - A physical screen, virtual screen,
+                or window may be frozen or suspended.  If an item is frozen
+                the results of any actions performed on it are not updated
+                to the physical screen.  Defrosting the item flashes the
+                results of all the operations subsequent to the freeze to
+                the physical screen.  (Suspending is identical to freezing
+                but is a toggle.  Unlike suspend, every call to freeze must
+                be matched by the same number of defrosts to un-freeze the
+                item.)
+              
+
+
+
+
+                                       - 13 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+              . Display List - WindowPro uses the display list to keep track
+                of the windows which have been opened on the physical
+                screen, and the order in which they are shown. The display
+                list is used to make sure that the windows on the physical
+                screen are stacked up in the right order when the physical
+                screen is redrawn.  You can reorder the list through various
+                function calls. Although you will never deal with this list
+                directly it is referred to often in the WindowPro functions
+                reference.
+              
+              . Hiding a window - if a window is hidden it retains its
+                position in the display list, but it is not displayed on the
+                physical screen. (Some useful effects can be programmed by
+                hiding and unhiding windows.)
+              
+              . Tiles - a tile is a subdivision of a window.  This is very
+                similar to the old split screen approach used by many word
+                processors and spreadsheets, and looks something like this: 
+                
+              
+                              +--------------------+ 
+                              |                    | 
+                              |     window #1      | 
+                              |      tile #1       | 
+                              |                    |-------------+ 
+                              |--------------------|             | 
+                              |                    |             | 
+                              |     window #1      |             | 
+                              |      tile #2       |             | 
+                              |                    |             | 
+                              +--------------------+             | 
+                                   |         |                   | 
+                                   |window #3|     window #2     | 
+                                   | tile #1 |      tile #1      | 
+                                   |         |                   | 
+                                   |         +-------------------+ 
+                                   |----------------------| 
+                                   |       window #3      | 
+                                   |        tile #2       | 
+                                   +----------------------+ 
+              
+                Many WindowPro functions which are available at window level
+                are also available at tile level.  All operations applied to
+                the window will affect its tiles.  If the window is hidden,
+                then all the tiles are hidden.  If the window is made
+                bigger, then the size of the tiles is adjusted too. Each
+                window has a tile display list (similar to the window
+                display list,) which controls how tiles are displayed within
+                the window.  
+              
+                The advantage of tiles is that you can display several
+                virtual screens in a single window.  This is useful when
+                creating segmented pull down menus, or in creating window
+                based editors.  For example, a text editor might use one
+
+
+
+                                       - 14 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+                tile for editing text, and a second to display formatting
+                information.  There are lots of uses for this feature, and
+                you will not find it anywhere else.  
+              
+                Tiles are also referred to by 'handles.' A single virtual
+                screen is always associated with a tile.
+              
+              . Scroll Bars - scroll bars consist of two scrolling hot
+                points, a thumbwheel, and a thumbwheel area.  There may be
+                vertical scroll bars, horizontal scroll bars, or both.  Each
+                tile can have its own set of scroll bars.  Although you can
+                use them in anyway you like.  Scroll bars are typically
+                setup to let the user scroll through a document (or
+                whatever) by holding the mouse on the hot points, by
+                dragging the thumbwheel, or by clicking in the thumbwheel
+                area to go to a specific point in a document.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       - 15 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          XI.   Tutorial
+          
+          The easiest way to understand WindowPro is to study some code
+          which employs the WindowPro library.  I've included a few simple
+          examples to show you how to get started.  The following
+          illustration is also found in TUTOR1.C.  You can compile and link
+          TUTOR1 by typing
+          
+          PRO TUTOR1 
+          
+          at the dos prompt.  
+          
+          There are five tutorials in all, TUTOR1 to TUTOR5.  I suggest
+          that you run through each in order by first printing the source
+          code, compiling and linking the source, running the executable,
+          and simultaneously tracing through the source code to see how the
+          various screen effects were performed.  There are numerous
+          getch() statements sprinkled through each tutor?.c file to help
+          slow down the action.  The TUTOR source code is liberally
+          commented.  You should not have a great deal of trouble comparing
+          the code to the screen action.
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       - 16 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          Lets put a window on the screen and type the words 'WindowPro'
+          inside of it.
+          
+          
+          /* 
+           * We'll need this for type checking on the windows functions
+          */
+          #include "pro.h"
+          
+          
+          /*
+           * You've got to have this.  It will setup the WindowPro global
+           * variables.
+          */
+          #include "xglobals.h"
+          
+          
+          /*
+           * We'll need this for type checking on the virtual screen 
+           * functions
+          */
+          #include "vs.h"
+          
+          
+          /*
+           * This is really handy, it defines the IBM-PC colors
+          */
+          #include "colors.h"
+          
+          
+          int main()
+          {
+          
+               /*
+                * We'll use this to store the window and tile handle 
+                * returned when we create a window.
+               */
+               unsigned int window_handle;
+               
+               /*
+                * Initialize WindowPro.  If you don't do this -- forget 
+                * it, everything blows up.
+               */
+               wn_init();
+          
+               /*
+                * Create a window and get a handle back.  
+          
+                * The window's virtual screen will be 25 rows by 80 
+                * columns,
+               */
+          
+               window_handle = wn_createw(25, 80, 
+          
+
+
+
+                                       - 17 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+               /*
+                * The upper left corner of the window will be located at the
+                * physical screen coordinates of (2,3); second column and 
+                * third row.
+               */
+          
+                  2, 3,
+          
+               /* 
+                * The upper left corner of the window will map to the 
+                * virtual screen coordinate (1,1); first column and 
+                * first row.
+               */
+          
+                  1, 1,
+          
+               /*
+                * The inner dimensions of the window will be 5,10; 
+                * 5 rows by 10 columns.
+               */
+          
+                  5, 10,
+          
+               */
+                * The window will not be suspended, i.e. all output
+                * to the virtual screen will be immediately displayed
+                * on the physical screen.
+               */
+          
+                  FALSE,
+          
+               */
+                * We won't use any shadowing effects.
+               */
+          
+                  HEAD_ON,
+          
+               /*
+                * Nor will we assign a name to the tile or window.
+               */
+          
+                 NULL, NULL);
+          
+          
+               /* 
+                * More simply put:       
+                * wn_createw(25,80,2,3,1,1,5,10,FALSE,HEAD_ON,NULL,NULL);
+               */
+          
+          
+               */
+                * Here comes the confusing part:
+                * All windows, even those that aren't divided into tiles
+                * have tiles.  You really should think of windows as a
+
+
+
+                                       - 18 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+                * way of grouping tiles together.  In the above case
+                * When we created the window, we also created a tile, and
+                * a virtual screen.  The first tile created in a new
+                * window always has a handle of 0 and every virtual
+                * screen is associated with a tile. We always
+                * reference a virtual screen by a pair of handles:
+                * A window handle (pointing to a group of tiles), and
+                * a tile handle.  In the window we just created the window
+                * has a handle of 'window_handle', the tile has a handle
+                * of 0, and we reference the virtual screen using
+                * {window_handle, 0}.
+               */
+          
+               /*
+                * Now let's put something in the virtual screen
+                *
+               */
+          
+               /*
+                * first we reference the virtual screen
+               */
+          
+                 vs_puts(window_handle, 0,
+          
+               /* 
+                * Then we say where we want the string put (column, row).
+               */
+          
+                 1, 1,
+          
+               /*
+                * Now we indicate the maximum length of the string to output
+               */
+          
+                 10,
+          
+               /* Now the foreground and background color of the string.
+                * Note, if the string is shorter than the maximum length
+                * The function pads spaces to the end.
+               */
+          
+                 white, blue, 
+          
+               /*
+                * And finally, the string to output.
+               */
+          
+                 "WindowPro");
+          
+               /*
+                * More simply put:
+                * vs_puts(window_handle,0,1,1,10,WHITE,BLUE,"WindowPro");
+               */
+          
+
+
+
+                                       - 19 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+               /*
+                * However, before anything happens on the screen we need to
+                * open it.
+               */
+          
+                 wn_openw(window_handle);
+          
+               /*
+                * That's it:
+          
+               ***********************************************************
+               * {                                                       *
+               * wn_init();                                              * 
+               *                                                         *
+               * window_handle =                                         *
+               * wn_createw(25,80,2,3,1,1,5,10,FALSE,HEAD_ON,NULL,NULL); *
+               *                                                         *
+               * vs_puts(window_handle,0,1,1,10,white,blue,              *
+               * "WindowPro");                                          *
+               *                                                         * 
+               * wn_openw(window_handle);                                *
+               * }                                                       *
+               ***********************************************************
+          
+          }  
+          
+          
+          XII.  Common Problems
+          
+          Most problems are caught by the automatic error checking.  The
+          most common problems are:
+          
+          .    Not calling wn_init() before using The WindowPro functions
+               and calling wn_init() more than once in an application. 
+               Call wn_init() before using TWP functions and only call it
+               once.
+          
+          .    Failure to use prototypes.  Each class of functions is
+               preceded by a one or two character identifier and then an
+               underbar, e.g. vs_gets, wn_createw, or vs_puts.  These
+               function identifiers also indicate the include file
+               containing the function prototype.  vs_, vs.h; kb_,
+               keyboard.h or mouse.h; wn_, pro.h; k_, kernel.h; and v_,
+               video.h.
+          
+
+
+
+
+
+
+
+
+
+
+
+
+                                       - 20 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          XIII. Forthcoming Enhancements
+          
+          Several enhancements are in the works for The WindowPro.
+          
+           .  Support for the Lattice C compiler, Watcom C, and Aztec C.
+           
+           .  More Presentation Manager style functionality.
+           
+                .. Child windows (clipped and unclipped)
+                .. Minimize/Maximize points on window frames
+           
+           .  Simplification of the application programmer interface.  We
+              have received several comments regarding the complexity of
+              the functions.  While most functions work as expected and do
+              much more than any other similar product there are two
+              problems which user feedback points out:
+           
+                .. There are a lot of arguments for some functions.  We
+                   intend to add some additional defaults to the window and
+                   tile structures and create functions which will use
+                   those defaults, as alternatives to the functions which
+                   let you specify all of the options, for example, we may
+                   add default background and foreground colors for the
+                   virtual screens, and supply an alternative set of
+                   functions or macros which will use the defaults rather
+                   than require you to pass them as arguments on each
+                   call.  All, of the existing functions will remain in
+                   their current form, these will only be enhancements.
+            
+                .. There is some inconsistency in the use of row, column or
+                   column, row designations -- these will be cleared up,
+                   but again the original functions will remain intact.
+          
+          
+          XIV.  Functions Overview
+          
+          WindowPro classifies its functions into five groupings:
+          
+             . Windows (and tiles)
+             . Virtual screens
+             . Video
+             . Kernel
+             . Keyboard and mouse
+             
+          The kernel functions are not documented in the shareware manual. 
+          You really shouldn't use them until you have gained considerable
+          experience with WindowPro.  They can be useful for tweaking a bit
+          of extra speed, or reducing code size.
+          
+          The windows and tile functions deal with changing the window
+          sizes, positions on the physical screen, border characters,
+          border styles, etc.
+          
+
+
+
+
+                                       - 21 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          The virtual screen functions manipulate the virtual screens. 
+          They allow you to print to a virtual screen, erase areas, etc.
+          
+          The video functions let you change cursor shapes, sense video
+          cards, set video modes, for IBM-PC and compatibles.
+          
+          The mouse and keyboard functions provide extended keyboard
+          support (so you can, for example, distinguish between the grey
+          and white '+' key) and functions for reporting on mouse activity,
+          limiting where it can roam, etc.
+          
+          The following is a laundry list of the types of functions you can
+          find in each general area.  It is not a complete list but it will
+          give you a feel for where you might find functions and helps
+          demonstrate the breadth of functionality encompassed by The
+          WindowPro.
+          
+          
+          WINDOWS AND TILES:
+          
+               INITIALIZE WindowPro --  initializes various variables  and
+               allocates memory for various structures.  
+               
+               CREATE a window -- sets up a window in memory and defines a
+               virtual screen.  
+               
+               OPEN a window -- puts a previously created window on top of
+               the display list.  
+               
+               CLOSE a window -- removes a window from the display list.  
+               
+               DELETE a window -- removes a window from memory.  
+               
+               HIDE a window -- suppresses the display of a window, but
+               keeps its position in the display list.  
+               
+               ACTIVATE a window -- temporarily places a window on top of
+               the display list, any previously active window is reinserted
+               into its original location in the display list.  
+               
+               MOVE a window -- changes the position of a window on the
+               physical screen relative to its current position.  
+               
+               LOCATE a window -- changes the position of a window on the
+               physical screen to an absolute position.  
+               
+               BORDERS  -- Each window can have its own unique border
+               characters, decided by you.  This is useful for
+               distinguishing between different types of windows on the
+               screen, for example menus, dialog boxes, and editing
+               windows.  You can also determine a border style such as
+               NORMAL, BORDERLESS, or SHADED.  Shaded borders provide you
+               with several types of shadow effects.  You can determine the
+               color of the border characters.  
+
+
+
+                                       - 22 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+               
+               SIZE a window -- changes the size of a window relative to
+               its current position.  
+               
+               RANGE -- virtually every function has a range oriented
+               version. This allows you to define groups of windows and
+               then move or size them as a group.  This is really handy
+               when developing applications where an object on the screen
+               is made up of a several overlapping windows, for example a
+               pop-up calculator might be programmed in this way.  
+               
+               NAME a window -- a window can be given a name which is
+               displayed in its borders.  
+               
+               SUSPEND a window -- operations performed on a suspended
+               window are not displayed on the screen (the window is
+               frozen.)  When the window is un-suspended the result of all
+               the operations performed are "flashed" on the screen at
+               once.  
+               
+               FREEZE and DEFROST the system -- If the entire system is
+               "frozen" absolutely no operation is reflected on the
+               screen.  "defrosting" the screen "flashes" all of the
+               changes on he screen at once.  
+               
+               ZOOM a window -- the active window can be temporarily
+               increased in size, and then un-zoomed back to its original
+               size.  
+               
+               CREATE a tile -- sets up additional virtual screens
+               associated with a window in memory.  
+               
+               OPEN a tile -- inserts a tile below the currently active
+               tile in a window.  
+               
+               CLOSE a tile -- removes a tile from the tile display list.  
+               
+               DELETE a tile -- removes a tile from memory.  
+               
+               SIZE a tile -- changes the size of tile relative to its
+               current size.  
+               
+               THUMBWHEELS -- thumbwheels are the center part of scroll
+               bars.  The WindowPro did not support these until version
+               1.31.  Thumbwheels can illustrate the relative position of
+               the viewport within a document, spreadsheet, virtual screen,
+               etc.  Functions are included to move the thumbwheels, sense
+               them with the mouse, synchronize the thumbwheels to the same
+               relative position as the virtual screen within the viewport,
+               and to synchronize the viewport to the relative positions of
+               the thumbwheels.
+               
+               NAME a tile -- a tile can be given a name which is displayed
+               in its borders.  
+
+
+
+                                       - 23 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+               
+               SUSPEND a tile -- similar to suspending a window described
+               above.  
+               
+               
+          VIRTUAL SCREEN FUNCTIONS: 
+          
+               PRINTF -- you can output to any virtual screen using a
+               windows-type printf which operates pretty much like regular
+               old printf, except that you can define background and
+               foreground attributes.  
+               
+               GETS -- you can collect input inside of windows using a
+               windows-type gets.  It is similar to regular gets but allows
+               for the definition of character colors, and scrolling
+               methods.  
+               
+               FILL -- you can fill any defined region in a virtual screen
+               with a character and attribute (great for erasing parts of
+               virtual screens)or with just an attribute (works well for
+               highlighting and dehighlighting words, etc.) 
+               
+               CURSOR -- Every virtual screen has its own cursor position. 
+               You can move it to any position you like.  
+               
+               SCROLL -- Because a virtual screen may actually be larger
+               than the window that displays it you can define what part of
+               the virtual screen is displayed in the window/tile.  This
+               can be used to create scrolling effects.  
+               
+               
+          VIDEO FUNCTIONS:
+          
+               CURSOR SHAPE -- you can define the shape of the cursor.  
+               
+               CURSOR LOCATION -- moves the cursor to any location on the
+               screen.  
+               
+               PUTC -- output a character and attribute to any location on
+               the screen.  
+               
+               SAVE/RESTORE SCREEN -- you can save any screen and use it as
+               a backdrop behind your windows display.  This is useful for
+               creating background screens, or in pop-up programs which
+               need to restore the screen to its state prior to be
+               "popped-up." 
+               
+               
+          KEYBOARD and MOUSE FUNCTIONS:
+          
+               EXTENDED KEYBOARD GETCH -- returns a full integer value
+               giving a scan code and ascii value.  This will let you
+               distinguish between say the grey + and the white + key.  
+               
+
+
+
+                                       - 24 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+               MOUSE EXISTENCE -- tells you if a MICROSOFT compatible mouse
+               is installed.  
+               
+               MOUSE STATUS -- tells you if a button was pressed and where
+               the mouse is on the screen.  
+               
+               MOUSE MOTION -- tells you how far the mouse has traveled and
+               in what direction since you last checked its motion
+               indicators.  
+               
+               MOUSE PRESSED/RELEASED -- tells you is button was pressed or
+               released and where the mouse was located at the time of the
+               event.  
+               
+               MOUSE CLICKS -- reports on typical macro-type mouse events
+               typically used in a mouse interface, e.g. clicks,
+               double-clicks, releases, and presses.
+               
+               MOUSE CURSOR -- you can control the style of the mouse
+               cursor and turn it on and off at will.  
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       - 25 -
+
+
+
+
+          WindowPro v. 1.5                                 Shareware Manual
+
+
+
+          XV.   Other Seabreeze Products
+          
+          Seabreeze Software also distributes and supports these products.
+          
+          Product                       Status
+          ------------------------      --------------------------------
+          Dialog Pro                    C-code for making and running
+                                        several types of dialog boxes (like
+                                        the MAC.)  Available Now.
+          
+          Pop-up Programmable 
+            Accountant's Calculator     C-code.  An excellent lesson in
+                                        using The WindowPro shareware
+                                        library.  Available Now.
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       - 26 -
+
+
+
+
+
+
+
+
+          ---------------- The WindowPro registration form ---------------
+          
+          Mailing Address
+          
+          Name         :___________________________________________________
+          Company Name :___________________________________________________
+          Position     :___________________________________________________
+          Street       :___________________________________________________
+                        ___________________________________________________
+          City         :_________________  State  :__  Zip Code :__________
+          Country      :___________________________________________________
+          Compuserve # :________________________ Phone # : (   ) ___ - ____
+          
+          Computer System
+          
+          Manufacturer :___________________________________________________
+          Model        :___________________________________________________
+          RAM          :___________________________________________________
+          
+          Disk Media   5 1/4" 360K __    5 1/4" 1.2mb __  
+                       3 1/2" 720K __    3 1/2" 1.4mb __
+          Hard Disk
+            Capacity   :___________________________________________________
+          Video Adapter:___________________________________________________
+          Monitor      :___________________________________________________
+          
+          
+          How did you hear about WindowPro? ______________________________
+          _________________________________________________________________
+          _________________________________________________________________
+          _________________________________________________________________
+          
+          Desired Support Level (check one)
+          
+          DOS      OS/2 & DOS
+          
+          __ $15   __ $50     The WindowPro shareware diskette
+          __ $50   __ $100    registered WindowPro shareware library user
+          __ $100  __ $200    registered WindowPro source code user
+                              (non-commercial)
+          __ $200  __ $400    registered WindowPro source code user
+                              (commercial)
+          
+          Include a check for the amount corresponding to the desired level
+          of service.  Make the check payable to, Seabreeze Software.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
